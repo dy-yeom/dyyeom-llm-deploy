@@ -19,6 +19,7 @@ spec:
       containers:
         - name: wins-assist
           image: IMAGE_PLACEHOLDER  # ArgoCD kustomize로 교체
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
               protocol: TCP
