@@ -7,4 +7,4 @@ resources:
 images:
   - name: IMAGE_PLACEHOLDER
     newName: 025913801970.dkr.ecr.ap-northeast-2.amazonaws.com/dyyeom-llm
-    newTag: latest  # ArgoCD image updater가 자동 교체
+    newTag: 7d38a91777ed9fae992eb15cef06ee937c65dd32
