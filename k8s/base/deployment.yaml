@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wins-assist
+  namespace: wins-assist
+  labels:
+    app: wins-assist
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wins-assist
+  template:
+    metadata:
+      labels:
+        app: wins-assist
+    spec:
+      serviceAccountName: wins-assist-sa
+      containers:
+        - name: wins-assist
+          image: IMAGE_PLACEHOLDER  # ArgoCD kustomize로 교체
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: wins-assist-secret
+          env:
+            - name: AWS_REGION
+              value: "ap-northeast-2"
+            - name: WORKERS
+              value: "3"
+            - name: GUNICORN_TIMEOUT
+              value: "120"
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health/detail
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/detail
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+      terminationGracePeriodSeconds: 30
