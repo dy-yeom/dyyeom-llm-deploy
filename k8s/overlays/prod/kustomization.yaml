@@ -7,4 +7,4 @@ resources:
 images:
   - name: IMAGE_PLACEHOLDER
     newName: 025913801970.dkr.ecr.ap-northeast-2.amazonaws.com/dyyeom-llm
-    newTag: 7d38a91777ed9fae992eb15cef06ee937c65dd32
+    newTag: 7012fa4235cc4edefcde7de69baa7d13373f928b
