@@ -6,5 +6,5 @@ resources:
 
 images:
   - name: IMAGE_PLACEHOLDER
-    newName: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/wins-assist
+    newName: 025913801970.dkr.ecr.ap-northeast-2.amazonaws.com/dyyeom-llm
     newTag: latest  # ArgoCD image updater가 자동 교체

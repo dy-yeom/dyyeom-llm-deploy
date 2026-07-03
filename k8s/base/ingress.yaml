@@ -7,8 +7,9 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    alb.ingress.kubernetes.io/certificate-arn: CERTIFICATE_ARN_PLACEHOLDER
+    alb.ingress.kubernetes.io/group.name: dyyeom-shared-alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:025913801970:certificate/42d45121-b91b-4afc-9eca-7f82cbe35441
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/healthcheck-path: /health/detail
     alb.ingress.kubernetes.io/subnets: subnet-0370012b5e176189a,subnet-08358f07f3802b099
@@ -24,3 +25,4 @@ spec:
                 name: wins-assist
                 port:
                   number: 80
+
